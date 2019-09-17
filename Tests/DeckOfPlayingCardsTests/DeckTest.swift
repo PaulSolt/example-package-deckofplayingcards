@@ -25,7 +25,7 @@ class DeckTest: XCTestCase {
             return  total + subTotal
         }
         
-        let ranks = [2,3,4,5,6,7,8,9,10,11,12,13,14].map{Rank(rawValue: $0)}.flatMap{$0}
+        let ranks = [2,3,4,5,6,7,8,9,10,11,12,13,14].map{Rank(rawValue: $0)}.compactMap{$0}
         let standard = ranks.reduce([PlayingCard](), reducer )
         
         XCTAssertEqual(Deck.standard52CardDeck(), Deck(standard))
